@@ -11,8 +11,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 using WebAPI.DB.Core;
 using WebAPI.DB.Repository;
+
 
 namespace WebAPIUsingEFCore
 {
@@ -28,10 +30,15 @@ namespace WebAPIUsingEFCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
             services.AddDbContext<InventoryContext>(options =>  
                         options.UseSqlServer(Configuration["Data:InventoryConnection:ConnectionString"]));
             services.AddScoped<IProductRepository, ProductRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
