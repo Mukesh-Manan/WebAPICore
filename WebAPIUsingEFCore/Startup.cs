@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -12,9 +13,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
+using NLog;
 using WebAPI.DB.Core;
 using WebAPI.DB.Repository;
-
+using WebAPI.Logging.NLogLogging;
 
 namespace WebAPIUsingEFCore
 {
@@ -23,6 +25,7 @@ namespace WebAPIUsingEFCore
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            LogManager.LoadConfiguration(System.String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
         }
 
         public IConfiguration Configuration { get; }
@@ -38,7 +41,7 @@ namespace WebAPIUsingEFCore
             services.AddDbContext<InventoryContext>(options =>  
                         options.UseSqlServer(Configuration["Data:InventoryConnection:ConnectionString"]));
             services.AddScoped<IProductRepository, ProductRepository>();
-            
+            services.AddSingleton<ILog, NLogLogger>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

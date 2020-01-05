@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIUsingEFCore", "WebAPIUsingEFCore\WebAPIUsingEFCore.csproj", "{0FB0DBE7-3580-4E8D-AA3F-3AEC2029DE41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIUsingEFCore", "WebAPIUsingEFCore\WebAPIUsingEFCore.csproj", "{0FB0DBE7-3580-4E8D-AA3F-3AEC2029DE41}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.Model", "WebAPI.Model\WebAPI.Model.csproj", "{EB2C326D-4382-4A6E-8949-5D1C5BE235BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.DB", "WebAPI.DB\WebAPI.DB.csproj", "{F65D64D6-D2DD-4274-B26A-B7AEBC21D0F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.Logging", "WebAPI.Logging\WebAPI.Logging.csproj", "{26B46EBC-C47E-43F3-B10D-A1449D017621}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F65D64D6-D2DD-4274-B26A-B7AEBC21D0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F65D64D6-D2DD-4274-B26A-B7AEBC21D0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F65D64D6-D2DD-4274-B26A-B7AEBC21D0F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B46EBC-C47E-43F3-B10D-A1449D017621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B46EBC-C47E-43F3-B10D-A1449D017621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B46EBC-C47E-43F3-B10D-A1449D017621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B46EBC-C47E-43F3-B10D-A1449D017621}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.DB.Repository;
+using WebAPI.Logging.NLogLogging;
 using WebAPI.Model;
 
 namespace WebAPIUsingEFCore.Controllers
@@ -14,17 +15,19 @@ namespace WebAPIUsingEFCore.Controllers
     public class InventoryController : ControllerBase
     {
         private readonly IProductRepository iProductRepository;
-
-        public InventoryController(IProductRepository productRepo)
+        private ILog nlogLogger;
+        public InventoryController(IProductRepository productRepo, ILog logger)
         {
             iProductRepository = productRepo;
+            nlogLogger = logger;
         }
 
         [HttpGet]
         [Route("GetTest")]
         public async Task<IEnumerable<Product>> GetTestResult()
         {
-             return await iProductRepository.GetProductsSync();
+            nlogLogger.Information("Hiiting API");
+            return await iProductRepository.GetProductsSync();
         }
     }
 }
