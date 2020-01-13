@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebAPI.DB.Core\WebAPI.DB.Core.csproj" />
     <ProjectReference Include="..\WebAPI.DB\WebAPI.DB.csproj" />
     <ProjectReference Include="..\WebAPI.Logging\WebAPI.Logging.csproj" />
     <ProjectReference Include="..\WebAPI.Model\WebAPI.Model.csproj" />
